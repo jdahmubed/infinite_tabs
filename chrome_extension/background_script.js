@@ -5,7 +5,7 @@ chrome.runtime.onMessage.addListener(function(message,sender,sendResponse){
 });
 
 chrome.browserAction.onClicked.addListener(function(tab) {
-	alert('clicked ' + tab.id);
+	console.log('clicked ' + tab.id);
 	chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
   	chrome.tabs.sendMessage(tab.id, {greeting: "hello"}, function(response) {
     console.log(response.farewell);

@@ -5,7 +5,7 @@
   "content_scripts": [
     {
       "matches": ["http://*/*", "https://*/*"],
-      "js": ["content_script.js"]
+      "js": ["jquery.min.js","content_script.js"]
     }
   ],
   "background": { "scripts": ["background_script.js"] },

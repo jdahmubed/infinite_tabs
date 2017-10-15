@@ -1,7 +1,8 @@
 chrome.runtime.onMessage.addListener(
 	function(request, sender, sendResponse) {
 		console.debug('content-script');
-		alert('content-script');
+		$('body').html('extension button clicked');
+		alert('content-script ' + $('body').html());
 	}
 );
 document.body.addEventListener('click', function(arg1, arg2) {
