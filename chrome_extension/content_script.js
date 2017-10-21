@@ -2,7 +2,8 @@ chrome.runtime.onMessage.addListener(
 	function(request, sender, sendResponse) {
 		console.debug('content-script');
 		$('body').html('Content script making Ajax request...');
-		var jqxhr = $.ajax( "http://localhost:9099?text=bar" )
+		console.debug('request: ' + request);
+		var jqxhr = $.ajax( "http://localhost:9099?text="  + encodeURIComponent(request.greeting))
 					  .done(function(data) {
 					    console.log("success " + data.foo );
 					    $('body').append('<b>success</b>:' + data.foo);

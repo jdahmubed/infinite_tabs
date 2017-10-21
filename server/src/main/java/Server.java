@@ -1,10 +1,12 @@
 import java.net.URI;
+import java.nio.file.Paths;
 import java.sql.*;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.apache.commons.io.FileUtils;
 import org.glassfish.jersey.jdkhttp.JdkHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.json.JSONObject;
@@ -27,7 +29,8 @@ public class Server {
         @Produces("application/json")
         public Response getAccount(@QueryParam("text") String text) throws Exception {
             try {
-                System.out.println("begin program");
+                System.out.println("begin program: " + text);
+                FileUtils.write(Paths.get("/Users/Justin/Documents/github_repos/infinite_tabs/urls.txt").toFile(), text, "UTF-8");
                 JSONObject object = new JSONObject();
                 object.put("foo", "barJustin");
                 return Response.status(200).header("Access-control-allow-origin", "*").entity(object.toString()).build();

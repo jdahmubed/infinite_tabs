@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/InfiniteTabs.iml" filepath="$PROJECT_DIR$/InfiniteTabs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bar.iml" filepath="$PROJECT_DIR$/bar.iml" />
     </modules>
   </component>
 </project>
