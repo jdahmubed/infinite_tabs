@@ -1,12 +1,24 @@
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
+<style>
+	a:visited {
+		color:green;
+	}
 
+	a:hover {
+		color:orange;
+	}
+</style>
 <script>
 var jqxhr = $.ajax( "http://localhost:9098" )
   .done(function(data) {
     console.log("success " + data.foo );
-    $( "#urls" ).html( data.foo.replace(/\n/g, "<br>\n"));
+    $( "#urls" ).html(data.foo.split(/\n/g)
+    	.map(function(url){
+    		return "<a href='"+url+"'><img src=" + "'https://cdn.dribbble.com/users/383716/screenshots/2163155/coffee-icon.jpg' width=25" + ">"+url+"<br> </a>"
+    	})
+    	.reduce(function(acc,url){return acc+url;}));
   })
   .fail(function() {
     alert( "error" );
